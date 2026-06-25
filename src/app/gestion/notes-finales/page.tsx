@@ -1605,12 +1605,12 @@ export default function NotesFinalesPage() {
         icon: <Clock size={20} />,
         trend: notesManquantes > 0 ? { value: `${notesManquantes} à noter`, isPositive: false } : undefined,
       },
-      {
-        label: 'Moyenne générale',
-        value: moyenne > 0 ? moyenne.toFixed(1) + '/20' : 'N/A',
-        icon: <TrendingUp size={20} />,
-        trend: moyenne > 0 ? { value: 'sur 20', isPositive: true } : undefined,
-      },
+      // {
+      //   label: 'Moyenne générale',
+      //   value: moyenne > 0 ? moyenne.toFixed(1) + '/20' : 'N/A',
+      //   icon: <TrendingUp size={20} />,
+      //   trend: moyenne > 0 ? { value: 'sur 20', isPositive: true } : undefined,
+      // },
     ];
   }, [stagiaires, notes]);
 
