@@ -1,4 +1,4 @@
-// app/admin/stagiaires/page.tsx - Version avec filtrage par encadreur
+// app/gestion/rappport/page.tsx - Version avec filtrage par encadreur
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -323,17 +323,7 @@ const fetchStagiaires = async () => {
         </div>
       )
     },
-    {
-      key: 'filiere',
-      header: 'Filière',
-      sortable: true,
-      render: (item) => (
-        <div className="flex items-center gap-1.5">
-          <GraduationCap size={14} className="text-violet-500" />
-          <span className="text-sm text-gray-700">{item.filiere} - {item.niveau}</span>
-        </div>
-      )
-    },
+   
     {
       key: 'stage',
       header: 'Stage',
@@ -485,7 +475,6 @@ const fetchStagiaires = async () => {
           { label: 'Nom complet', value: `${stagiaire.prenom} ${stagiaire.nom}` },
           { label: 'Email', value: stagiaire.email || 'Non renseigné', icon: <Mail size={14} /> },
           { label: 'Téléphone', value: stagiaire.telephone || 'Non renseigné', icon: <Phone size={14} /> },
-          { label: 'Filière', value: stagiaire.filiere, icon: <GraduationCap size={14} /> },
           { label: 'Niveau', value: stagiaire.niveau, icon: <BookOpen size={14} /> },
         ]
       }
@@ -593,7 +582,7 @@ const fetchStagiaires = async () => {
 
   const handleExport = () => {
     const csvContent = [
-      ['Matricule', 'Nom', 'Prénom', 'Email', 'Filière', 'Niveau', 'Service', 'Statut Stage', 'Rapport', 'Note'].join(','),
+      ['Matricule', 'Nom', 'Prénom', 'Email', 'Niveau', 'Service', 'Statut Stage', 'Rapport', 'Note'].join(','),
       ...filteredStagiaires.map(s => [
         s.matricule, s.nom, s.prenom, s.email, s.filiere, s.niveau,
         s.stage?.service_accueil || 'N/A', s.stage?.statut || 'N/A',

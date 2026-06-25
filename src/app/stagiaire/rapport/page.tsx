@@ -317,8 +317,7 @@ export default function RapportStagePage() {
     );
   }
 
-  const fileInfo = getFileTypeInfo(stage.rapport_url, getFileNameFromUrl(stage.rapport_url));
-
+const fileInfo = getFileTypeInfo(stage.rapport_url, stage.rapport_url ? getFileNameFromUrl(stage.rapport_url) : undefined);
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
       {/* En-tête avec dégradé */}
